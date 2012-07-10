@@ -16,7 +16,7 @@ TestResults
 
 svn*
 *svn
-*packages*
+
 *lib2*
 MobileClient*
 *pdb*
@@ -25,8 +25,7 @@ MobileClient*
 *log-file*
 
 =======
-packages*
-packages.config
+
 *.txt
 bin*
 ## Ignore Visual Studio temporary files, build results, and

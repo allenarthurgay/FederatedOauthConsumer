@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Contracts", "Api.Contra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Implementations", "Api.Implementations\Api.Implementations.csproj", "{6B511690-28B0-400D-97EA-8EE7B3046F91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.RestServiceHost", "Api.RestServiceHost\Api.RestServiceHost.csproj", "{B3B49E96-FDE3-457A-899B-144A893442AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6B511690-28B0-400D-97EA-8EE7B3046F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B511690-28B0-400D-97EA-8EE7B3046F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B511690-28B0-400D-97EA-8EE7B3046F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B49E96-FDE3-457A-899B-144A893442AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B49E96-FDE3-457A-899B-144A893442AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B49E96-FDE3-457A-899B-144A893442AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B49E96-FDE3-457A-899B-144A893442AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

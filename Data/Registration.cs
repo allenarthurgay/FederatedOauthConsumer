@@ -7,6 +7,7 @@ using Core;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
 
+
 namespace Data
 {
     public class Registration: IFunqRegistrationModule
