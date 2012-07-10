@@ -19,5 +19,13 @@ namespace Api.Implementations.Services
 			//todo actuall go get data
 			return new IsRegisteredForServiceResponse {IsRegistered = true};
 		}
+
+		public GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request)
+		{
+			return new GetRegistrationHtmlResponse
+			       	{
+						Html = @"<img src=""https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png"" />"
+					};
+		}
 	}
 }
