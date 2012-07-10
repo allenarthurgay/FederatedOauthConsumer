@@ -5,5 +5,7 @@ namespace Api.Contracts.Services
 	public interface IAuthConsumerService
 	{
 		GetSupportedServicesResponse GetSupportedServices(GetSupportedServicesRequest request);
+
+		IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request);
 	}
 }
