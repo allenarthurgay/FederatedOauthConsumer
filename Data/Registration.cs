@@ -27,6 +27,7 @@ namespace Data
             using (var dbConn = dbFactory.OpenDbConnection())
             using (var dbCmd = dbConn.CreateCommand())
             {
+
                 const bool overwrite = false;
                 dbCmd.CreateTables(overwrite, allIDataItems);
             }
@@ -53,7 +54,7 @@ namespace Data
         }
 
 
-        private static OrmLiteConnectionFactory OrmLiteConnectionFactory()
+        internal static OrmLiteConnectionFactory OrmLiteConnectionFactory()
         {
             var setting =
                 ConfigurationManager.ConnectionStrings[
