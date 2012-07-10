@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Api.RestServiceHost.App_Start;
 
 namespace Api.RestServiceHost
 {
@@ -14,6 +15,7 @@ namespace Api.RestServiceHost
     {      
         protected void Application_Start()
         {
+			new AppHost().Init();
         }
     }
 }

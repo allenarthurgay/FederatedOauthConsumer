@@ -3,10 +3,11 @@ using System.Linq;
 using System.Configuration;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Core;
 using ServiceStack.Configuration;
 using ServiceStack.CacheAccess;
 using ServiceStack.CacheAccess.Providers;
-using ServiceStack.Mvc;
+
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
 using ServiceStack.ServiceInterface;
@@ -14,7 +15,6 @@ using ServiceStack.ServiceInterface.Auth;
 using ServiceStack.ServiceInterface.ServiceModel;
 using ServiceStack.WebHost.Endpoints;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(Api.RestServiceHost.App_Start.AppHost), "Start")]
 
 //IMPORTANT: Add the line below to MvcApplication.RegisterRoutes(RouteCollection) in the Global.asax:
 //routes.IgnoreRoute("api/{*pathInfo}"); 
@@ -71,7 +71,7 @@ namespace Api.RestServiceHost.App_Start
 				new SessionFactory(c.Resolve<ICacheClient>()));
 
 			//Set MVC to use the same Funq IOC as ServiceStack
-			ControllerBuilder.Current.SetControllerFactory(new FunqControllerFactory(container));
+			ServiceRegistration.RegisterAllContainers(container);
 		}
 
 		/* Uncomment to enable ServiceStack Authentication and CustomUserSession
@@ -104,9 +104,6 @@ namespace Api.RestServiceHost.App_Start
 		}
 		*/
 
-		public static void Start()
-		{
-			new AppHost().Init();
-		}
+
 	}
 }

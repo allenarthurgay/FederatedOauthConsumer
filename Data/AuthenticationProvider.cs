@@ -19,5 +19,6 @@ namespace Data
 
         [StringLength(500)]
         public string Name { get; set; }
+
     }
 }

@@ -35,7 +35,7 @@
       <HintPath>..\lib\ServiceStack.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\Api.Implementations\bin\Debug\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\lib\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
       <HintPath>..\lib\ServiceStack.OrmLite.dll</HintPath>
