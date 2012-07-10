@@ -4,17 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Data.Tests
 {
 	[TestClass]
-	public class UserTokenRecordRepositoryTests
+	public class UserTokenRecordRepositoryTests : TestBase
 	{
 		[TestMethod]
-		public void Can_add_user_token_record()
+		public void	Can_add_user_token_record()
 		{
-			new Registration().CreateTablesForTypes();
-
 			var userId = Guid.NewGuid();
 			var recordId = Guid.NewGuid();
 
-			var reporitosty = new UserTokenRecordRepository();
+			var repository = new UserTokenRecordRepository();
 
 			var newRecord = new UserTokenRecord
 			                 	{
@@ -24,9 +22,9 @@ namespace Data.Tests
 			                 		Token = "test"
 			                 	};
 
-			reporitosty.Add(newRecord);
+			repository.Add(newRecord);
 
-			var actual = reporitosty.GetUserTokenRecord(userId, "SomeService");
+			var actual = repository.GetUserTokenRecord(userId, "SomeService");
 
 			Assert.AreEqual(recordId, actual.UniqueId);
 		}
