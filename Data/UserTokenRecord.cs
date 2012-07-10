@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Data
 {
-	class UserTokenRecord : DataItemBase
+	public class UserTokenRecord : DataItemBase
 	{
 		public Guid UserId { get; set; }
 		

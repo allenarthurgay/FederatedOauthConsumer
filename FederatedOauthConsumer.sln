@@ -11,7 +11,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Implementations", "Api.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.RestServiceHost", "Api.RestServiceHost\Api.RestServiceHost.csproj", "{B3B49E96-FDE3-457A-899B-144A893442AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Tests", "Data.Tests\Data.Tests.csproj", "{CAFB6F8B-43B7-4EDC-A37B-5EAA8DCD7D9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{87B29660-B01A-4229-A4CC-C8CDC34BF124}"
+	ProjectSection(SolutionItems) = preProject
+		FederatedOauthConsumer.vsmdi = FederatedOauthConsumer.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = FederatedOauthConsumer.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -37,6 +49,10 @@ Global
 		{B3B49E96-FDE3-457A-899B-144A893442AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B49E96-FDE3-457A-899B-144A893442AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B49E96-FDE3-457A-899B-144A893442AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFB6F8B-43B7-4EDC-A37B-5EAA8DCD7D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFB6F8B-43B7-4EDC-A37B-5EAA8DCD7D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFB6F8B-43B7-4EDC-A37B-5EAA8DCD7D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFB6F8B-43B7-4EDC-A37B-5EAA8DCD7D9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
