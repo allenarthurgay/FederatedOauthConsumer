@@ -23,6 +23,7 @@ namespace Api.RestServiceHost.App_Start
 
 		    Routes.Add<EmptyDto>("/empty");
 			Routes.Add<GetSupportedServicesRequest>("/supportedservices");
+			Routes.Add<IsRegisteredForServiceRequest>("/id/{PrincipalId}/service/{Service}/registeredforservice");
 
 			//Change the default ServiceStack configuration
 			SetConfig(new EndpointHostConfig {
