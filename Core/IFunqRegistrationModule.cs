@@ -1,6 +1,6 @@
 namespace Core
 {
-    public interface IFunqRegistrationModules
+    public interface IFunqRegistrationModule
     {
         void RegisterDependencies(Funq.Container container);
     }
