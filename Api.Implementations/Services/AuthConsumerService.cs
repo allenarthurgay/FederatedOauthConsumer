@@ -27,5 +27,11 @@ namespace Api.Implementations.Services
 						Html = @"<img src=""https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png"" />"
 					};
 		}
+
+		public GetServiceTokenForPrincipalIdResponse GetServiceTokenForPrincipalId(GetServiceTokenForPrincipalIdRequest request)
+		{
+			// todo actually go get the data
+			return new GetServiceTokenForPrincipalIdResponse {Token = "abc123"};
+		}
 	}
 }
