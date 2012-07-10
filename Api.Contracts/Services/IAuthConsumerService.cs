@@ -7,5 +7,6 @@ namespace Api.Contracts.Services
 		GetSupportedServicesResponse GetSupportedServices(GetSupportedServicesRequest request);
 		IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request);
 		GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request);
+		GetServiceTokenForPrincipalIdResponse GetServiceTokenForPrincipalId(GetServiceTokenForPrincipalIdRequest request);
 	}
 }
