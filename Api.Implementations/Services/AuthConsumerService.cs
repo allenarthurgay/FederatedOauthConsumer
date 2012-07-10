@@ -14,6 +14,12 @@ namespace Api.Implementations.Services
 			return new GetSupportedServicesResponse {SupportedServices = new List<string> {"twitter"}};
 		}
 
+		public IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request)
+		{
+			//todo actuall go get data
+			return new IsRegisteredForServiceResponse {IsRegistered = true};
+		}
+
 		public GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request)
 		{
 			return new GetRegistrationHtmlResponse

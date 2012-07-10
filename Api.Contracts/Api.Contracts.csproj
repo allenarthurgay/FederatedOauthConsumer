@@ -40,10 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dto\IsRegisteredForServiceResponse.cs" />
     <Compile Include="dto\GetRegistrationHtmlRequest.cs" />
     <Compile Include="dto\GetRegistrationHtmlResponse.cs" />
     <Compile Include="dto\GetSupportedServicesRequest.cs" />
     <Compile Include="dto\GetSupportedServicesResponse.cs" />
+    <Compile Include="dto\IsRegisteredForServiceRequest.cs" />
     <Compile Include="EmptyDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ISimpleDataItemRepository.cs" />

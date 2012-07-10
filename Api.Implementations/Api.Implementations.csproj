@@ -54,6 +54,7 @@
     <Compile Include="Handlers\EmptyExampleHandler.cs" />
     <Compile Include="Handlers\GetRegistrationHtmlHandler.cs" />
     <Compile Include="Handlers\GetSupportedServicesHandler.cs" />
+    <Compile Include="Handlers\IsRegisteredForServiceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Repositories\BaseDataItemRepository.cs" />
