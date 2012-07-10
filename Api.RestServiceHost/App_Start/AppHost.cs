@@ -24,7 +24,8 @@ namespace Api.RestServiceHost.App_Start
 		    Routes.Add<EmptyDto>("/empty");
 			Routes.Add<GetSupportedServicesRequest>("/supportedservices");
 			Routes.Add<IsRegisteredForServiceRequest>("/id/{PrincipalId}/service/{Service}/registeredforservice");
-			Routes.Add<GetRegistrationHtmlRequest>("/getregistrationhtml/{PrincipalId}/{Service}/");
+			Routes.Add<GetRegistrationHtmlRequest>("/id/{PrincipalId}/service/{Service}/registrationhtml");
+			Routes.Add<GetServiceTokenForPrincipalIdRequest>("/id/{PrincipalId}/service/{Service}/gettoken");
 
 			//Change the default ServiceStack configuration
 			SetConfig(new EndpointHostConfig {
