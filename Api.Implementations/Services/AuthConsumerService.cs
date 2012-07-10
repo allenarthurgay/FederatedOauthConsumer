@@ -13,5 +13,13 @@ namespace Api.Implementations.Services
 		{
 			return new GetSupportedServicesResponse {SupportedServices = new List<string> {"twitter"}};
 		}
+
+		public GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request)
+		{
+			return new GetRegistrationHtmlResponse
+			       	{
+						Html = @"<img src=""https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png"" />"
+					};
+		}
 	}
 }

@@ -23,6 +23,7 @@ namespace Api.RestServiceHost.App_Start
 
 		    Routes.Add<EmptyDto>("/empty");
 			Routes.Add<GetSupportedServicesRequest>("/supportedservices");
+			Routes.Add<GetRegistrationHtmlRequest>("/getregistrationhtml/{PrincipalId}/{Service}/");
 
 			//Change the default ServiceStack configuration
 			SetConfig(new EndpointHostConfig {
