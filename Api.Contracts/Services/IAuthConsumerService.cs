@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Api.Contracts.dto;
 
 namespace Api.Contracts.Services
 {
-    public interface IAuthConsumerService
-    {
-    }
+	public interface IAuthConsumerService
+	{
+		GetSupportedServicesResponse GetSupportedServices(GetSupportedServicesRequest request);
+	}
 }
