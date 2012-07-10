@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AppHost.cs" />
-    <Compile Include="App_Start\WebServiceExamples.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -93,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\js\ss-validation.js" />
-    <Content Include="default.htm" />
     <Content Include="Global.asax" />
     <Content Include="jqunback-1.51.min.js" />
     <Content Include="Web.config" />
@@ -105,6 +103,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Api.Contracts\Api.Contracts.csproj">
+      <Project>{465D9510-43D7-4C51-8B11-1FB57D6A7C9D}</Project>
+      <Name>Api.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api.Implementations\Api.Implementations.csproj">
+      <Project>{6B511690-28B0-400D-97EA-8EE7B3046F91}</Project>
+      <Name>Api.Implementations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{1F902AAD-9A34-4530-A3E3-62B0F31A38A5}</Project>
       <Name>Core</Name>
@@ -112,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
