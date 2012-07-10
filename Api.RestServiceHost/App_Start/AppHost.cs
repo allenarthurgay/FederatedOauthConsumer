@@ -1,4 +1,5 @@
 using Api.Contracts;
+using Api.Contracts.dto;
 using Api.Implementations.Handlers;
 using Core;
 using ServiceStack.CacheAccess;
@@ -21,6 +22,7 @@ namespace Api.RestServiceHost.App_Start
 			ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
 
 		    Routes.Add<EmptyDto>("/empty");
+			Routes.Add<GetSupportedServicesRequest>("/supportedservices");
 
 			//Change the default ServiceStack configuration
 			SetConfig(new EndpointHostConfig {

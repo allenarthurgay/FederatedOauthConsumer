@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Api.Contracts.Services;
+using Api.Implementations.Services;
 using Core;
-using ServiceStack;
 
 namespace Api.Implementations
 {
@@ -11,7 +8,7 @@ namespace Api.Implementations
     {
         public void RegisterDependencies(Funq.Container container)
         {
-           
+        	container.Register<IAuthConsumerService>(c => new AuthConsumerService());
         }
     }
 }
