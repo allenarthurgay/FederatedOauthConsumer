@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dto\GetRegistrationHtmlRequest.cs" />
+    <Compile Include="dto\GetRegistrationHtmlResponse.cs" />
     <Compile Include="dto\GetSupportedServicesRequest.cs" />
     <Compile Include="dto\GetSupportedServicesResponse.cs" />
     <Compile Include="EmptyDto.cs" />
