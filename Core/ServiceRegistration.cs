@@ -13,12 +13,12 @@ namespace Core
         {
             var regModules = GetAssembliesCurrentlyExecuting().ToArray()
                 .SelectMany(GetTypes)
-                .Where(p => p.IsClass && typeof(IFunqRegistrationModules).IsAssignableFrom(p))
+                .Where(p => p.IsClass && typeof(IFunqRegistrationModule).IsAssignableFrom(p))
                 .ToList();
 
             foreach (var type in regModules)
             {
-                var regModule = Activator.CreateInstance(type) as IFunqRegistrationModules;
+                var regModule = Activator.CreateInstance(type) as IFunqRegistrationModule;
                 regModule.RegisterDependencies(container);
             }
         }
