@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationProvider.cs" />
+    <Compile Include="UserTokenRecord.cs" />
+    <Compile Include="UserTokenRecordRepository.cs" />
+    <Compile Include="UserTokenRelationRepository.cs" />
     <Compile Include="DataItemBase.cs" />
     <Compile Include="DataItemRepository.cs" />
     <Compile Include="IDataItem.cs" />
@@ -63,8 +66,9 @@
     <Compile Include="Registration.cs" />
     <Compile Include="ServiceProvider.cs" />
     <Compile Include="ServiceProviderRepository.cs" />
-    <Compile Include="UserTokenRecord.cs" />
-    <Compile Include="UserTokenRecordRepository.cs" />
+    <Compile Include="UserRecord.cs" />
+    <Compile Include="UserRecordRepository.cs" />
+    <Compile Include="UserTokenRelation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

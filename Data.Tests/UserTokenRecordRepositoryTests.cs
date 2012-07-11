@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Data;
 
 namespace Data.Tests
 {
@@ -12,19 +13,18 @@ namespace Data.Tests
 			var userId = Guid.NewGuid();
 			var recordId = Guid.NewGuid();
 
-			var repository = new UserTokenRecordRepository();
+			var repository = new UserRecordRepository();
 
-			var newRecord = new UserTokenRecord
+			var newRecord = new UserRecord
 			                 	{
 									UniqueId = recordId,
-									UserId = userId,
+									//UserId = userId,
 									ServiceType = "SomeService",
-			                 		Token = "test"
 			                 	};
 
 			repository.Add(newRecord);
 
-			var actual = repository.GetUserTokenRecord(userId, "SomeService");
+			var actual = repository.GetUserRecord(userId, "SomeService");
 
 			Assert.AreEqual(recordId, actual.UniqueId);
 		}
