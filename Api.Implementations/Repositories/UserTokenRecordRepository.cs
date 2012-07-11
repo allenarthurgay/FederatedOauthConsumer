@@ -14,13 +14,17 @@ namespace Api.Implementations.Repositories
 
         public UserTokenRecord GetUserTokenRecord(Guid userId, string serviceType)
         {
-            return ConnectionProvider.ExecuteQuery(cmd =>
-                                                   ReadExtensions.FirstOrDefault<UserTokenRecord>(cmd, record => record.UserId == userId &&
-                                                                                                 0==string.Compare(
-                                                                                                     record.ServiceType,
-                                                                                                     serviceType,
-                                                                                                     StringComparison.OrdinalIgnoreCase
-                                                                                                     )));
+        	try
+        	{
+				return ConnectionProvider.ExecuteQuery(cmd =>
+													   ReadExtensions.FirstOrDefault<UserTokenRecord>(cmd, record => record.UserId == userId &&
+																									 record.ServiceType == serviceType));
+        	}
+        	catch (Exception)
+        	{
+
+        		return null;
+        	}
 
         }
 	}

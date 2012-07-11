@@ -27,14 +27,14 @@ namespace Api.Implementations.Services
 
 		public GetSupportedServicesResponse GetSupportedServices(GetSupportedServicesRequest request)
 		{
-			return new GetSupportedServicesResponse {SupportedServices = new List<string> {"twitter"}};
+			return new GetSupportedServicesResponse {SupportedServices = new List<string> {"facebook","twitter"}};
 		}
 
 		public IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request)
 		{
             var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, request.Service);
             			            
-			return new IsRegisteredForServiceResponse {IsRegistered = token != null};
+			return new IsRegisteredForServiceResponse {IsRegistered = string.IsNullOrEmpty(token.Token)};
 		}
 
 		public GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request)
@@ -63,18 +63,22 @@ namespace Api.Implementations.Services
 		public void RegisterServiceToken(RegisterServiceTokenRequest request)
 		{
 			//does already exist
-		    var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, request.Service);
             var service = _serviceProviderRepository.GetByServiceName(request.Service);
+		    var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Name);
             var massager = _authTokenMassagerServiceFactory.GetMassagerForService(service);
-		    var authToken = massager.NormalizeToken(request.Token);
+			var authToken = massager == null ? request.Token : massager.NormalizeToken(request.Token);
 
             if(token ==  null)
             {
                 _userTokenRepository.Add(new UserTokenRecord
                                              {
+												 UniqueId = new Guid(),
                                                  UserId = request.PrincipalId,
                                                  ServiceType = request.Service,
-                                                 Token = authToken
+                                                 Token = authToken,
+												 Created = DateTime.Now,
+												 Updated = DateTime.Now,
+												 Status = 1
                                              });
             }
             else
