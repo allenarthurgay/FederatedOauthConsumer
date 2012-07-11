@@ -33,5 +33,10 @@ namespace Api.Implementations.Services
 			// todo actually go get the data
 			return new GetServiceTokenForPrincipalIdResponse {Token = "abc123"};
 		}
+
+		public void RegisterServiceToken(RegisterServiceTokenRequest request)
+		{
+			// todo register the service token
+		}
 	}
 }

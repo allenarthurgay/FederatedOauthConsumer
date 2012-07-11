@@ -8,5 +8,6 @@ namespace Api.Contracts.Services
 		IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request);
 		GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request);
 		GetServiceTokenForPrincipalIdResponse GetServiceTokenForPrincipalId(GetServiceTokenForPrincipalIdRequest request);
+		void RegisterServiceToken(RegisterServiceTokenRequest request);
 	}
 }
