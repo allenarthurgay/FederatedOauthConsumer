@@ -58,6 +58,7 @@
     <Compile Include="IDataConnectionProvider.cs" />
     <Compile Include="IFunqRegistrationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.cs" />
     <Compile Include="ServiceRegistration.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>

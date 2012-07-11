@@ -12,8 +12,6 @@ namespace Data
 {
     public class Registration: IFunqRegistrationModule
     {
-        public readonly static string Connectionstring = "DataLayer.Properties.Settings.ProductionConnectionString";
-
         public void RegisterDependencies(Funq.Container container)
         {
             CreateTablesForTypes();
@@ -49,7 +47,7 @@ namespace Data
             var type = typeof(IDataItem);
             var types = AppDomain.CurrentDomain.GetAssemblies().ToList()
                 .SelectMany(s => s.GetTypes())
-                .Where(type.IsAssignableFrom);
+                .Where(c=> c.IsClass && type.IsAssignableFrom(c));
             return types.ToArray();
         }
 
@@ -58,7 +56,7 @@ namespace Data
         {
             var setting =
                 ConfigurationManager.ConnectionStrings[
-                    Connectionstring].ConnectionString;
+                    DataConnectionProvider.Connectionstring].ConnectionString;
 
             var dbFactory = new OrmLiteConnectionFactory(
                 setting,
