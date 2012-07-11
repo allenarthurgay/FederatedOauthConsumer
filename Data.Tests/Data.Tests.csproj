@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -51,6 +52,14 @@
     <Compile Include="UserTokenRecordRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Api.Contracts\Api.Contracts.csproj">
+      <Project>{465D9510-43D7-4C51-8B11-1FB57D6A7C9D}</Project>
+      <Name>Api.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api.Implementations\Api.Implementations.csproj">
+      <Project>{6B511690-28B0-400D-97EA-8EE7B3046F91}</Project>
+      <Name>Api.Implementations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{1F902AAD-9A34-4530-A3E3-62B0F31A38A5}</Project>
       <Name>Core</Name>

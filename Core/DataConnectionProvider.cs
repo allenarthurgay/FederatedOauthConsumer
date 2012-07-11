@@ -81,5 +81,7 @@ namespace Core
                 return dbCmd.GetLastInsertId();
             }
         }
+
+        public readonly static string Connectionstring = "DataLayer.Properties.Settings.ProductionConnectionString";
     }
 }

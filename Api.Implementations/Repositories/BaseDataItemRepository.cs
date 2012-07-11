@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -70,6 +70,11 @@ namespace Api.Implementations.Repositories
                     item.Status = (int)status;
                     cmd.Update(item);
                 });
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return ConnectionProvider.ExecuteQuery(cmd => cmd.Select<T>());
         }
 
         public IEnumerable<T> GetValues(int page, int pagesize)

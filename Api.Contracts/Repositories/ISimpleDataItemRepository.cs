@@ -18,6 +18,8 @@ namespace Api.Contracts.Repositories
 
         void SetStatus(int id, Status status);
 
+        IEnumerable<T> GetAll();
+        
         IEnumerable<T> GetValues(int page, int pagesize);
 
         IEnumerable<T> GetValues(Status status, int page, int pagesize);
