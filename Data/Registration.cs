@@ -47,7 +47,7 @@ namespace Data
             var type = typeof(IDataItem);
             var types = AppDomain.CurrentDomain.GetAssemblies().ToList()
                 .SelectMany(s => s.GetTypes())
-                .Where(type.IsAssignableFrom);
+                .Where(c=> c.IsClass && type.IsAssignableFrom(c));
             return types.ToArray();
         }
 

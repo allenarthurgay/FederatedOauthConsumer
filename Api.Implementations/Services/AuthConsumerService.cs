@@ -10,10 +10,19 @@ namespace Api.Implementations.Services
 	public class AuthConsumerService : IAuthConsumerService
 	{
 	    private readonly IUserTokenRepository _userTokenRepository;
+	    private readonly IServiceProviderHtmlFactory _serviceProviderHtmlFactory;
+	    private readonly IServiceProviderRepository _serviceProviderRepository;
+	    private readonly IAuthTokenMassagerServiceFactory _authTokenMassagerServiceFactory;
 
-	    public AuthConsumerService(IUserTokenRepository userTokenRepository)
+	    public AuthConsumerService(IUserTokenRepository userTokenRepository,
+            IServiceProviderRepository serviceProviderRepository,
+            IServiceProviderHtmlFactory serviceProviderHtmlFactory,
+            IAuthTokenMassagerServiceFactory authTokenMassagerServiceFactory)
         {
             _userTokenRepository = userTokenRepository;
+	        _serviceProviderHtmlFactory = serviceProviderHtmlFactory;
+	        _serviceProviderRepository = serviceProviderRepository;
+	        _authTokenMassagerServiceFactory = authTokenMassagerServiceFactory;
         }
 
 		public GetSupportedServicesResponse GetSupportedServices(GetSupportedServicesRequest request)
@@ -24,15 +33,23 @@ namespace Api.Implementations.Services
 		public IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request)
 		{
             var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, request.Service);
-            			
+            			            
 			return new IsRegisteredForServiceResponse {IsRegistered = token != null};
 		}
 
 		public GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request)
 		{
+		    var service = _serviceProviderRepository.GetByServiceName(request.Service);
+		    var htmlProvider = _serviceProviderHtmlFactory.GetProviderHtmlService(service);
+
+            if(null == htmlProvider)
+            {
+                throw  new Exception("Couldn't find an html provider for service named :" + request.Service);
+            }
+		    
 			return new GetRegistrationHtmlResponse
 			       	{
-						Html = @"<img src=""https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png"" />"
+						Html =htmlProvider.GetHtmlForService(service)
 					};
 		}
 
@@ -47,18 +64,23 @@ namespace Api.Implementations.Services
 		{
 			//does already exist
 		    var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, request.Service);
+            var service = _serviceProviderRepository.GetByServiceName(request.Service);
+            var massager = _authTokenMassagerServiceFactory.GetMassagerForService(service);
+		    var authToken = massager.NormalizeToken(request.Token);
+
             if(token ==  null)
             {
                 _userTokenRepository.Add(new UserTokenRecord
                                              {
                                                  UserId = request.PrincipalId,
-                                                 ServiceType = request.Service
+                                                 ServiceType = request.Service,
+                                                 Token = authToken
                                              });
             }
             else
             {
                 token.Updated = DateTime.Now;
-                token.Token = request.Token;
+                token.Token = authToken;
                 _userTokenRepository.Edit(token);
             }
 		}

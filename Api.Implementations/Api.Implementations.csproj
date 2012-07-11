@@ -63,6 +63,11 @@
     <Compile Include="Repositories\ServiceProviderRepository.cs" />
     <Compile Include="Repositories\UserTokenRecordRepository.cs" />
     <Compile Include="Services\AuthConsumerService.cs" />
+    <Compile Include="Services\AuthTokenMassagerServiceFactory.cs" />
+    <Compile Include="Services\FacebookServiceProviderHtmlService.cs" />
+    <Compile Include="Services\FacebookTokenMassager.cs" />
+    <Compile Include="Services\ServiceProviderHtmlFactory.cs" />
+    <Compile Include="Services\TwitterServiceProviderHtmlService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Api.Contracts\Api.Contracts.csproj">
@@ -78,7 +83,9 @@
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Templates\facebook.htm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
