@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Api.Contracts.Repositories;
 using Core;
@@ -20,5 +21,11 @@ namespace Api.Implementations.Repositories
 	                                                              s =>
 	                                                              s.Name.ToLower() ==service.ToLower()).FirstOrDefault());
 	    }
+
+		public List<string> GetSupportedServices()
+		{
+			var servicePrividers = ConnectionProvider.ExecuteQuery(cmd => cmd.Select<ServiceProvider>());
+			return servicePrividers.Select(svc => svc.Name).ToList();
+		}
 	}
 }

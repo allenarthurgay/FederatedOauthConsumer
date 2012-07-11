@@ -27,14 +27,23 @@ namespace Api.Implementations.Services
 
 		public GetSupportedServicesResponse GetSupportedServices(GetSupportedServicesRequest request)
 		{
-			return new GetSupportedServicesResponse {SupportedServices = new List<string> {"facebook","twitter"}};
+			return new GetSupportedServicesResponse { SupportedServices = _serviceProviderRepository.GetSupportedServices() };
 		}
 
 		public IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request)
 		{
-            var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, request.Service);
+			if(!_serviceProviderRepository.GetSupportedServices().Contains(request.Service.ToLower()))
+			{
+				return new IsRegisteredForServiceResponse
+				       	{
+				       		IsRegistered =false
+				       	};
+			}
+
+			var service = _serviceProviderRepository.GetByServiceName(request.Service);
+			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Name);
             			            
-			return new IsRegisteredForServiceResponse {IsRegistered = string.IsNullOrEmpty(token.Token)};
+			return new IsRegisteredForServiceResponse {IsRegistered = token != null && !string.IsNullOrEmpty(token.Token)};
 		}
 
 		public GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request)
