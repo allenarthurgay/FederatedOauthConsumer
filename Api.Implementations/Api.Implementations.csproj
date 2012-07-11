@@ -60,6 +60,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Repositories\BaseDataItemRepository.cs" />
+    <Compile Include="Repositories\ServiceProviderRepository.cs" />
+    <Compile Include="Repositories\UserTokenRecordRepository.cs" />
     <Compile Include="Services\AuthConsumerService.cs" />
   </ItemGroup>
   <ItemGroup>

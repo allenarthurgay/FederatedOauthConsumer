@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Api.Contracts.Repositories;
+using Api.Implementations.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Data.Tests
@@ -10,10 +12,7 @@ namespace Data.Tests
 		[TestMethod]
 		public void Can_get_all_service_types()
 		{
-			var recordId = Guid.NewGuid();
-
-			var repository = new ServiceProviderRepository();
-
+			var recordId = Guid.NewGuid();			
 
 			var newRecord1 = new ServiceProvider()
 			{
@@ -27,10 +26,10 @@ namespace Data.Tests
 				Name = Guid.NewGuid().ToString()
 			};
 												
-			repository.Add(newRecord1);
-			repository.Add(newRecord2);
+			ServiceProviderRepository.Add(newRecord1);
+			ServiceProviderRepository.Add(newRecord2);
 
-			var serviceList = repository.GetAll().ToList();
+			var serviceList = ServiceProviderRepository.GetAll().ToList();
 
 			Assert.IsNotNull(serviceList.FirstOrDefault(s => s.Name == newRecord1.Name));
 			Assert.IsNotNull(serviceList.FirstOrDefault(s => s.Name == newRecord2.Name));

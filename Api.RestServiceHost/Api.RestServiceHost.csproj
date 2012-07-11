@@ -91,9 +91,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\jquery-1.5.1.min.js" />
     <Content Include="Content\js\ss-validation.js" />
     <Content Include="Global.asax" />
     <Content Include="jqunback-1.51.min.js" />
+    <Content Include="testpages\getservices.htm" />
+    <Content Include="testpages\viewserviceshtml.htm" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
