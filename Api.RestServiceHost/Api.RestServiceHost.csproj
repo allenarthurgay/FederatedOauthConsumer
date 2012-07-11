@@ -95,6 +95,7 @@
     <Content Include="Content\js\ss-validation.js" />
     <Content Include="Global.asax" />
     <Content Include="jqunback-1.51.min.js" />
+    <Content Include="testpages\FacebookDemo.htm" />
     <Content Include="testpages\getservices.htm" />
     <Content Include="testpages\viewserviceshtml.htm" />
     <Content Include="Web.config">
