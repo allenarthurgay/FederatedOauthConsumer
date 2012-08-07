@@ -6,10 +6,10 @@ namespace Data.Tests
 	[TestClass]
 	public class UserTokenRecordRepositoryTests : TestBase
 	{
-        public void Setup()
-        {
-            
-        }
+		public void Setup()
+		{
+			
+		}
 		[TestMethod]
 		public void	Can_add_user_token_record()
 		{
@@ -17,16 +17,16 @@ namespace Data.Tests
 			var recordId = Guid.NewGuid();			
 
 			var newRecord = new UserTokenRecord
-			                 	{
+								{
 									UniqueId = recordId,
 									UserId = userId,
-									ServiceType = "SomeService",
-			                 		Token = "test"
-			                 	};
+									Id = 1,
+									Token = "test"
+								};
 
 			UserTokenRepository.Add(newRecord);
 
-            var actual = UserTokenRepository.GetUserTokenRecord(userId, "SomeService");
+			var actual = UserTokenRepository.GetUserTokenRecord(userId,1);
 
 			Assert.AreEqual(recordId, actual.UniqueId);
 		}

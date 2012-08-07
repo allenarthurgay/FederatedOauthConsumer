@@ -1,12 +1,17 @@
+using System;
+using System.Collections.Generic;
 using Api.Contracts;
 using Api.Contracts.dto;
 using Api.Implementations.Handlers;
+using Api.RazorViews;
 using Core;
 using ServiceStack.CacheAccess;
 using ServiceStack.CacheAccess.Providers;
+using ServiceStack.Razor;
 using ServiceStack.ServiceInterface.Admin;
 using ServiceStack.ServiceInterface.Validation;
 using ServiceStack.WebHost.Endpoints;
+using ServiceStack.WebHost.Endpoints.Formats;
 
 namespace Api.RestServiceHost.App_Start
 {
@@ -21,12 +26,12 @@ namespace Api.RestServiceHost.App_Start
 			//Set JSON web services to return idiomatic JSON camelCase properties
 			ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
 
-			Routes.Add<EmptyDto>("/empty");
-			Routes.Add<GetSupportedServicesRequest>("/supportedservices");
-			Routes.Add<IsRegisteredForServiceRequest>("/id/{PrincipalId}/service/{Service}/registeredforservice");
-			Routes.Add<GetRegistrationHtmlRequest>("/id/{PrincipalId}/service/{Service}/registrationhtml");
-			Routes.Add<GetServiceTokenForPrincipalIdRequest>("/id/{PrincipalId}/service/{Service}/gettoken");
-			Routes.Add<RegisterServiceTokenRequest>("/id/{PrincipalId}/service/{Service}/token/{Token}");
+			Routes.Add<EmptyDto>("/empty")
+				.Add<GetSupportedServicesRequest>("/supportedservices")
+				.Add<GetRegistrationHtmlRequest>("/{Service}/registrationhtml")
+				.Add<IsRegisteredForServiceRequest>("/{PrincipalId}/{Service}/isregistered")
+				.Add<GetServiceTokenForPrincipalIdRequest>("/{PrincipalId}/{Service}/gettoken")
+				.Add<RegisterServiceTokenRequest>("/register");
 
 			//Change the default ServiceStack configuration
 			SetConfig(new EndpointHostConfig
@@ -37,12 +42,14 @@ namespace Api.RestServiceHost.App_Start
 				GlobalResponseHeaders = {	{ "Access-Control-Allow-Origin", "*" }, 
 											{ "Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS" },
 											{ "Access-Control-Allow-Headers", "Content-Type" },
-										},
+										}
+
 			});
 
 			Plugins.Add(new ValidationFeature());
 
 			Plugins.Add(new RequestLogsFeature());
+
 
 			//Register In-Memory Cache provider. 
 			//For Distributed Cache Providers Use: PooledRedisClientManager, BasicRedisClientManager or see: https://github.com/ServiceStack/ServiceStack/wiki/Caching

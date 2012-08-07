@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Api.Contracts.Repositories;
 using Api.Contracts.Services;
 using Api.Contracts.dto;
@@ -10,19 +9,17 @@ namespace Api.Implementations.Services
 	public class AuthConsumerService : IAuthConsumerService
 	{
 		private readonly IUserTokenRepository _userTokenRepository;
-		private readonly IServiceProviderHtmlFactory _serviceProviderHtmlFactory;
+		private readonly IAuthProviderFactory _authProviderFactory;
 		private readonly IServiceProviderRepository _serviceProviderRepository;
-		private readonly IAuthTokenMassagerServiceFactory _authTokenMassagerServiceFactory;
+		
 
 		public AuthConsumerService(IUserTokenRepository userTokenRepository,
 			IServiceProviderRepository serviceProviderRepository,
-			IServiceProviderHtmlFactory serviceProviderHtmlFactory,
-			IAuthTokenMassagerServiceFactory authTokenMassagerServiceFactory)
+			IAuthProviderFactory authProviderFactory)
 		{
 			_userTokenRepository = userTokenRepository;
-			_serviceProviderHtmlFactory = serviceProviderHtmlFactory;
+			_authProviderFactory = authProviderFactory;
 			_serviceProviderRepository = serviceProviderRepository;
-			_authTokenMassagerServiceFactory = authTokenMassagerServiceFactory;
 		}
 
 		public GetSupportedServicesResponse GetSupportedServices(GetSupportedServicesRequest request)
@@ -41,7 +38,7 @@ namespace Api.Implementations.Services
 			}
 
 			var service = _serviceProviderRepository.GetByServiceName(request.Service);
-			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Name);
+			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Id);
 									
 			return new IsRegisteredForServiceResponse {IsRegistered = token != null && !string.IsNullOrEmpty(token.Token)};
 		}
@@ -49,12 +46,12 @@ namespace Api.Implementations.Services
 		public GetRegistrationHtmlResponse GetRegistrationHtml(GetRegistrationHtmlRequest request)
 		{
 			var service = _serviceProviderRepository.GetByServiceName(request.Service);
-			var htmlProvider = _serviceProviderHtmlFactory.GetProviderHtmlService(service);
+			var authProvider = _authProviderFactory.GetAuthProviderInstance(service);
 
 			var html = string.Empty;
-			if(null != htmlProvider)
+			if (null != authProvider)
 			{
-				html = htmlProvider.GetHtmlForService(service);
+				html = authProvider.GetHtmlForService(service);
 			}
 
 			return new GetRegistrationHtmlResponse {Html = html};
@@ -63,7 +60,7 @@ namespace Api.Implementations.Services
 		public GetServiceTokenForPrincipalIdResponse GetServiceTokenForPrincipalId(GetServiceTokenForPrincipalIdRequest request)
 		{
 			var service = _serviceProviderRepository.GetByServiceName(request.Service);
-			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Name);
+			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Id);
 
 			return new GetServiceTokenForPrincipalIdResponse { Token = token == null ? string.Empty : token.Token };
 
@@ -73,9 +70,9 @@ namespace Api.Implementations.Services
 		{
 			//does already exist
 			var service = _serviceProviderRepository.GetByServiceName(request.Service);
-			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Name);
-			var massager = _authTokenMassagerServiceFactory.GetMassagerForService(service);
-			var authToken = massager == null ? request.Token : massager.NormalizeToken(request.Token);
+			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Id);
+			var authProvider = _authProviderFactory.GetAuthProviderInstance(service);
+			var authToken = authProvider == null ? request.Token : authProvider.NormalizeToken(request.Token);
 
 			if(token ==  null)
 			{
@@ -83,7 +80,7 @@ namespace Api.Implementations.Services
 											 {
 												 UniqueId = new Guid(),
 												 UserId = request.PrincipalId,
-												 ServiceType = request.Service,
+												 ServiceTypeId = service.Id,
 												 Token = authToken,
 												 Created = DateTime.Now,
 												 Updated = DateTime.Now,

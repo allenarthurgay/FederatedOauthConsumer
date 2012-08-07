@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Text;
 using Core;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
@@ -25,7 +23,6 @@ namespace Data
             using (var dbConn = dbFactory.OpenDbConnection())
             using (var dbCmd = dbConn.CreateCommand())
             {
-
                 const bool overwrite = false;
                 dbCmd.CreateTables(overwrite, allIDataItems);
             }

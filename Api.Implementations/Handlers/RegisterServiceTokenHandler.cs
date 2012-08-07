@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Api.Contracts.Services;
+﻿using Api.Contracts.Services;
 using Api.Contracts.dto;
 using ServiceStack.ServiceInterface;
 
@@ -17,7 +13,7 @@ namespace Api.Implementations.Handlers
 			_service = service;
 		}
 
-		public override object OnPut(RegisterServiceTokenRequest request)
+		public override object OnPost(RegisterServiceTokenRequest request)
 		{
 			_service.RegisterServiceToken(request);
 			return null;

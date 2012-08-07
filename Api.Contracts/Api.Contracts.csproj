@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dto\Category.cs" />
     <Compile Include="dto\GetServiceTokenForPrincipalIdResponse.cs" />
     <Compile Include="dto\GetServiceTokenForPrincipalIdRequest.cs" />
     <Compile Include="dto\IsRegisteredForServiceResponse.cs" />
@@ -55,10 +56,8 @@
     <Compile Include="Repositories\ISimpleDataItemRepository.cs" />
     <Compile Include="Repositories\IUserTokenRepository.cs" />
     <Compile Include="Services\IAuthConsumerService.cs" />
-    <Compile Include="Services\IAuthProviderTokenMassager.cs" />
-    <Compile Include="Services\IAuthTokenMassagerServiceFactory.cs" />
-    <Compile Include="Services\IServiceProviderHtmlFactory.cs" />
-    <Compile Include="Services\IServiceProviderHtmlService.cs" />
+    <Compile Include="Services\IAuthProviderInstance.cs" />
+    <Compile Include="Services\IAuthProviderFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

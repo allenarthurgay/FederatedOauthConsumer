@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace Data
 {
@@ -7,10 +6,8 @@ namespace Data
 	{
 		public Guid UserId { get; set; }
 		
-		[StringLength(500)]
-		public string ServiceType { get; set; }
+		public int ServiceTypeId { get; set; }
 		
-		[StringLength(500)]
 		public string Token { get; set; }
 	}
 }

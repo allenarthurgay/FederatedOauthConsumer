@@ -35,6 +35,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\ServiceStack.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Common, Version=3.7.3.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ServiceStack.Interfaces">
       <HintPath>..\lib\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
@@ -63,11 +64,8 @@
     <Compile Include="Repositories\ServiceProviderRepository.cs" />
     <Compile Include="Repositories\UserTokenRecordRepository.cs" />
     <Compile Include="Services\AuthConsumerService.cs" />
-    <Compile Include="Services\AuthTokenMassagerServiceFactory.cs" />
-    <Compile Include="Services\FacebookServiceProviderHtmlService.cs" />
-    <Compile Include="Services\FacebookTokenMassager.cs" />
-    <Compile Include="Services\ServiceProviderHtmlFactory.cs" />
-    <Compile Include="Services\TwitterServiceProviderHtmlService.cs" />
+    <Compile Include="Services\AuthProviderFactory.cs" />
+    <Compile Include="Services\FacebookAuthProviderInstance.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Api.Contracts\Api.Contracts.csproj">
@@ -84,7 +82,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\facebook.htm" />
+    <Resource Include="Templates\facebook.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
