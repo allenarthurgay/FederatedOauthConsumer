@@ -57,12 +57,6 @@
     <Reference Include="ServiceStack.OrmLite.SqlServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.2\lib\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Razor">
-      <HintPath>..\packages\ServiceStack.3.9.2\lib\net40\ServiceStack.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Redis">
-      <HintPath>..\packages\ServiceStack.Redis.3.9.0\lib\net35\ServiceStack.Redis.dll</HintPath>
-    </Reference>
     <Reference Include="ServiceStack.ServiceInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\ServiceStack.3.9.2\lib\net40\ServiceStack.ServiceInterface.dll</HintPath>
@@ -109,6 +103,9 @@
     <Content Include="jqunback-1.51.min.js" />
     <Content Include="Script\authservices.js" />
     <Content Include="Script\facebook.js" />
+    <Content Include="Script\yammer.js" />
+    <Content Include="testpages\addservice.htm" />
+    <Content Include="testpages\yammer.htm" />
     <Content Include="testpages\FacebookDemo.htm" />
     <Content Include="testpages\getservices.htm" />
     <Content Include="testpages\viewserviceshtml.htm" />
@@ -130,10 +127,6 @@
     <ProjectReference Include="..\Api.Implementations\Api.Implementations.csproj">
       <Project>{6B511690-28B0-400D-97EA-8EE7B3046F91}</Project>
       <Name>Api.Implementations</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Api.RazorViews\Api.RazorViews.csproj">
-      <Project>{4442CB01-6FEF-4DF0-83FF-60E9514FB557}</Project>
-      <Name>Api.RazorViews</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{1F902AAD-9A34-4530-A3E3-62B0F31A38A5}</Project>

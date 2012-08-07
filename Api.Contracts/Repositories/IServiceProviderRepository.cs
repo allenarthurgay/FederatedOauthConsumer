@@ -6,6 +6,9 @@ namespace Api.Contracts.Repositories
     public interface IServiceProviderRepository: ISimpleDataItemRepository<ServiceProvider>
     {
         ServiceProvider GetByServiceName(string service);
+
     	List<string> GetSupportedServices();
+
+        ServiceProvider AddServiceProvider(string name);
     }
 }

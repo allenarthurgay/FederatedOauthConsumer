@@ -2,7 +2,7 @@
 	FB.login(function (response) {
 		if (response.status == "connected") {
 			var fb = FB.getAuthResponse();
-			var urlToSendCredentials = "/register/";
+			var urlToSendCredentials = "/register/token";
 
 			var dataToPost = {
 				principalId: AuthApiConfig.principalId,
@@ -20,6 +20,6 @@
 }
 
 (function () {
-	async_addScript(document, 'facebook-jssdk', "//connect.facebook.net/en_US/all.js#xfbml=1&appId=" + AuthApiConfig.facebookAppId);
+	async_addScript(document, 'facebook-jssdk', "//connect.facebook.net/en_US/all.js#xfbml=1&appId=" + AuthApiConfig.appId);
 	async_addScript(document, 'jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
 })();

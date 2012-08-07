@@ -1,17 +1,12 @@
-using System;
-using System.Collections.Generic;
 using Api.Contracts;
 using Api.Contracts.dto;
 using Api.Implementations.Handlers;
-using Api.RazorViews;
 using Core;
 using ServiceStack.CacheAccess;
 using ServiceStack.CacheAccess.Providers;
-using ServiceStack.Razor;
 using ServiceStack.ServiceInterface.Admin;
 using ServiceStack.ServiceInterface.Validation;
 using ServiceStack.WebHost.Endpoints;
-using ServiceStack.WebHost.Endpoints.Formats;
 
 namespace Api.RestServiceHost.App_Start
 {
@@ -28,10 +23,11 @@ namespace Api.RestServiceHost.App_Start
 
 			Routes.Add<EmptyDto>("/empty")
 				.Add<GetSupportedServicesRequest>("/supportedservices")
-				.Add<GetRegistrationHtmlRequest>("/{Service}/registrationhtml")
+                .Add<GetRegistrationHtmlRequest>("/{PrincipalId}/{Service}/registrationhtml")
 				.Add<IsRegisteredForServiceRequest>("/{PrincipalId}/{Service}/isregistered")
 				.Add<GetServiceTokenForPrincipalIdRequest>("/{PrincipalId}/{Service}/gettoken")
-				.Add<RegisterServiceTokenRequest>("/register");
+				.Add<RegisterServiceTokenRequest>("/register/token")
+                .Add<RegisterServiceProviderRequest>("/register/serviceprovider");
 
 			//Change the default ServiceStack configuration
 			SetConfig(new EndpointHostConfig

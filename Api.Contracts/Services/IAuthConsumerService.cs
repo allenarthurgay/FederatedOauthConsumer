@@ -13,5 +13,7 @@ namespace Api.Contracts.Services
 		GetServiceTokenForPrincipalIdResponse GetServiceTokenForPrincipalId(GetServiceTokenForPrincipalIdRequest request);
 
 		void RegisterServiceToken(RegisterServiceTokenRequest request);
+
+	    void RegisterServiceProvider(RegisterServiceProviderRequest request);
 	}
 }

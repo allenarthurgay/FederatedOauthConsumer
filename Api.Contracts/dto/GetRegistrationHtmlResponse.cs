@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Api.Contracts.dto
+﻿namespace Api.Contracts.dto
 {
 	public class GetRegistrationHtmlResponse
-	{
+    {
+        public string AppId { get; set; }
+
+        public string PrincipalId { get; set; }
+
+        public string Service { get; set; }    
+
 		public string Html { get; set; }
+
+        public string ScriptUrlRoot { get; set; }
 	}
 }

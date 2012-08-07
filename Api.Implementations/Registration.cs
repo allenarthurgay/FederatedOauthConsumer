@@ -18,7 +18,8 @@ namespace Api.Implementations
 			container.Register<IEnumerable<IAuthProviderInstance>>(
 				c => new IAuthProviderInstance[]
 							{
-								new FacebookAuthProviderInstance()
+								new FacebookAuthProviderInstance(),
+                                new YammerAuthProviderInstance()
 							});
 
 			container.Register<IUserTokenRepository>(

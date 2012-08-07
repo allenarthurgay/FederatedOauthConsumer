@@ -7,6 +7,22 @@
 	fjs.parentNode.insertBefore(js, fjs);
 };
 
+function isRegisteredForService(servicename) {
+    var serviceUrl = "/" + AuthApiConfig.principalId +"/"+ servicename + "/isregistered?format=json";
+    alert(serviceUrl);
+    $.get(serviceUrl, function (data) {
+
+        alert(JSON.stringify(data.isRegistered));
+    });
+}
+
+function getSupportedServices() {
+    var serviceUrl =  "/supportedservices?format=json";
+    $.get(serviceUrl, function(data) {
+        alert(JSON.stringify(data));
+    });
+}
+
 //load script from configured AuthApiConfig
 (function () {
 	async_addScript(document, "authservice", AuthApiConfig.scriptUrlRoot + "/" + AuthApiConfig.service + ".js");

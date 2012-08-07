@@ -2,20 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 	<title>Untitled Page</title>
-	
+	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 	<body>
-		<script type="text/javascript">
-			var AuthApiConfig = {
-				facebookAppId: "352351538166944",
-				principalId: "5AA9FC2A-76CF-427A-888D-035D9A386AE0",
-				service: "facebook",
-				scriptUrlRoot: "/script"
-			};
-		</script>
-		<script type="text/javascript" src="/Script/authservices.js"></script>
-
+	    <script type="text/javascript">
+    	    var serviceUrl = "/5AA9FC2A-76CF-427A-888D-035D9A386AE0/facebook/registrationhtml?format=json";
+    	    var AuthApiConfig = { };
+    	    $.get(serviceUrl, function (data) {
+    	        alert(JSON.stringify(data));
+    	        AuthApiConfig = data;
+    	        $("#scriptcontainer").html(data.html);	        
+    	    });	        
+    	</script>
+        <div id="scriptcontainer"></div>
 		
-		<input type="button" onclick="fb_auth();" value="Login to facebook"/>
+		
+	    <input type="button" onclick="fb_auth();" value="Login to facebook"/>
+
 	</body>
 </html>

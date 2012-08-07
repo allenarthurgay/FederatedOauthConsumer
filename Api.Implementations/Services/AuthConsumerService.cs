@@ -4,6 +4,7 @@ using Api.Contracts.Services;
 using Api.Contracts.dto;
 using Data;
 
+
 namespace Api.Implementations.Services
 {
 	public class AuthConsumerService : IAuthConsumerService
@@ -29,14 +30,6 @@ namespace Api.Implementations.Services
 
 		public IsRegisteredForServiceResponse IsRegisteredForService(IsRegisteredForServiceRequest request)
 		{
-			if(!_serviceProviderRepository.GetSupportedServices().Contains(request.Service.ToLower()))
-			{
-				return new IsRegisteredForServiceResponse
-						{
-							IsRegistered =false
-						};
-			}
-
 			var service = _serviceProviderRepository.GetByServiceName(request.Service);
 			var token = _userTokenRepository.GetUserTokenRecord(request.PrincipalId, service.Id);
 									
@@ -51,10 +44,10 @@ namespace Api.Implementations.Services
 			var html = string.Empty;
 			if (null != authProvider)
 			{
-				html = authProvider.GetHtmlForService(service);
+                return authProvider.GetHtmlForService(request.PrincipalId.ToString());
 			}
 
-			return new GetRegistrationHtmlResponse {Html = html};
+			return new GetRegistrationHtmlResponse();
 		}
 
 		public GetServiceTokenForPrincipalIdResponse GetServiceTokenForPrincipalId(GetServiceTokenForPrincipalIdRequest request)
@@ -94,5 +87,10 @@ namespace Api.Implementations.Services
 				_userTokenRepository.Edit(token);
 			}
 		}
+
+	    public void RegisterServiceProvider(RegisterServiceProviderRequest request)
+	    {
+	        _serviceProviderRepository.AddServiceProvider(request.Name);
+	    }
 	}
 }
