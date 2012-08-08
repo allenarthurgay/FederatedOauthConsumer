@@ -4,5 +4,7 @@ namespace Api.RestServiceHost.Contracts
 	{
 		public string ProjectId { get; set; }
 		public string Message { get; set; }
+
+	    public string PrincipalId { get; set; }
 	}
 }

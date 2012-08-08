@@ -1,24 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Web;
 using Api.RestServiceHost.Contracts;
+using Api.RestServiceHost.Services;
+using ServiceStack.Common.Web;
 using ServiceStack.ServiceInterface;
 
 namespace Api.RestServiceHost.Handlers
 {
 	public class CreatePostHandler : RestServiceBase<CreatePostRequest>
 	{
-		private static readonly string UserToken = "yRVmP0k8B2qWP6oLTjw";
+        private readonly IAuthenticatedYammerRequestFactory _authenticatedYammerRequestFactory;
+	    
+	    public CreatePostHandler(IAuthenticatedYammerRequestFactory authenticatedYammerRequestFactory)
+        {
+            _authenticatedYammerRequestFactory = authenticatedYammerRequestFactory;
+        }
 
 		public override object OnPost(CreatePostRequest request)
 		{
-			var webRequest = CreateRequest("https://www.yammer.com/api/v1/messages?group_id=" 
-				+ GroupMap.GetGroupId(request.ProjectId) 
-				+ "&body=" 
-				+ HttpUtility.UrlEncode(request.Message));
+		    var url = "https://www.yammer.com/api/v1/messages?group_id="
+		              + GroupMap.GetGroupId(request.ProjectId)
+		              + "&body="
+		              + HttpUtility.UrlEncode(request.Message);
+
+            HttpWebRequest webRequest;
+            try
+            {
+                webRequest = _authenticatedYammerRequestFactory.CreateAuthenticatedRequest(request.PrincipalId, url);
+            }
+            catch (Exception e)
+            {
+                return new HttpResult(HttpStatusCode.Unauthorized, e.Message);
+            }
+
 			webRequest.Method = "POST";
 
 			try
@@ -33,15 +49,6 @@ namespace Api.RestServiceHost.Handlers
 				return e;
 			}
 
-		}
-
-		private HttpWebRequest CreateRequest(string url)
-		{
-			var webRequest = (HttpWebRequest)WebRequest.Create(url);
-
-			webRequest.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + UserToken);
-
-			return webRequest;
 		}
 	}
 }
