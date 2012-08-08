@@ -71,7 +71,7 @@ namespace Api.Implementations.Services
 			{
 				_userTokenRepository.Add(new UserTokenRecord
 											 {
-												 UniqueId = new Guid(),
+												 UniqueId = Guid.NewGuid(),
 												 UserId = request.PrincipalId,
 												 ServiceTypeId = service.Id,
 												 Token = authToken,
