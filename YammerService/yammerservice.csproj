@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B3B49E96-FDE3-457A-899B-144A893442AD}</ProjectGuid>
+    <ProjectGuid>{DB45A4A0-3102-4AEC-B4DA-E564976A8D94}</ProjectGuid>
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -91,9 +91,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AppHost.cs" />
+    <Compile Include="Contracts\CreateGroupRequest.cs" />
+    <Compile Include="Contracts\GetGroupsRequest.cs" />
+    <Compile Include="Contracts\CreatePostRequest.cs" />
+    <Compile Include="Contracts\GetPostsRequest.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\CreateGroupHandler.cs" />
+    <Compile Include="Handlers\GetGroupsHandler.cs" />
+    <Compile Include="Handlers\CreatePostHandler.cs" />
+    <Compile Include="Handlers\EmptyExampleHandler.cs" />
+    <Compile Include="Handlers\GetPostsInGroupHandler.cs" />
+    <Compile Include="Handlers\GroupMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,9 +113,6 @@
     <Content Include="jqunback-1.51.min.js" />
     <Content Include="Script\authservices.js" />
     <Content Include="Script\facebook.js" />
-    <Content Include="Script\yammer.js" />
-    <Content Include="testpages\addservice.htm" />
-    <Content Include="testpages\yammer.htm" />
     <Content Include="testpages\FacebookDemo.htm" />
     <Content Include="testpages\getservices.htm" />
     <Content Include="testpages\viewserviceshtml.htm" />
@@ -120,14 +127,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Api.Contracts\Api.Contracts.csproj">
-      <Project>{465D9510-43D7-4C51-8B11-1FB57D6A7C9D}</Project>
-      <Name>Api.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Api.Implementations\Api.Implementations.csproj">
-      <Project>{6B511690-28B0-400D-97EA-8EE7B3046F91}</Project>
-      <Name>Api.Implementations</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{1F902AAD-9A34-4530-A3E3-62B0F31A38A5}</Project>
       <Name>Core</Name>
@@ -159,7 +158,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58371</DevelopmentServerPort>
+          <DevelopmentServerPort>55678</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
