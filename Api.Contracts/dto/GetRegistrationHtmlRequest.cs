@@ -5,9 +5,9 @@ namespace Api.Contracts.dto
 	public class GetRegistrationHtmlRequest
 	{
 		public Guid PrincipalId { get; set; }
+
+        public string ApplicationId { get; set; }
+
 		public string Service { get; set; }
 	}
-
-
-
 }

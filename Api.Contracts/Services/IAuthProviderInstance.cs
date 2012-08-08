@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Api.Contracts.dto;
+﻿using Api.Contracts.dto;
 using Data;
 
 namespace Api.Contracts.Services
@@ -19,8 +15,6 @@ namespace Api.Contracts.Services
 		/// <returns></returns>
 		string NormalizeToken(string serviceAuthToken);
 
-        GetRegistrationHtmlResponse GetHtmlForService(string userId);
-
-	   
+        GetRegistrationHtmlResponse GetHtmlForService(string userId, string applicationId);	   
 	}
 }

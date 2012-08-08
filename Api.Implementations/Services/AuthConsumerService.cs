@@ -44,7 +44,7 @@ namespace Api.Implementations.Services
 			var html = string.Empty;
 			if (null != authProvider)
 			{
-                return authProvider.GetHtmlForService(request.PrincipalId.ToString());
+                return authProvider.GetHtmlForService(request.PrincipalId.ToString(), request.ApplicationId);
 			}
 
 			return new GetRegistrationHtmlResponse();

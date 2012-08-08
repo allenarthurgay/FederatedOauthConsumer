@@ -22,11 +22,11 @@ namespace Api.Implementations.Services
 			return serviceAuthToken;
 		}
 
-        public GetRegistrationHtmlResponse GetHtmlForService(string userId)
+        public GetRegistrationHtmlResponse GetHtmlForService(string userId, string applicationId)
         {
             return new GetRegistrationHtmlResponse
                 {
-                    AppId = "352351538166944",
+                    AppId = applicationId,
                     PrincipalId = userId,
                     Service = SupportedService.Name,
                     ScriptUrlRoot = "/script",

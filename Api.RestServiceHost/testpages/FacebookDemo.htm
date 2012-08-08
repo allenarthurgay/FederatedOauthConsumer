@@ -6,13 +6,15 @@
 </head>
 	<body>
 	    <script type="text/javascript">
-    	    var serviceUrl = "/5AA9FC2A-76CF-427A-888D-035D9A386AE0/facebook/registrationhtml?format=json";
+	        var userId = "5AA9FC2A-76CF-427A-888D-035D9A386AE0";
+	        var appId = "352351538166944";
+	        var serviceRequested = "facebook";
+    	    var serviceUrl = "/" + userId + "/" + serviceRequested + "/registrationhtml?applicationId=" + appId + "&format=json";
     	    var AuthApiConfig = { };
     	    $.get(serviceUrl, function (data) {
-    	        alert(JSON.stringify(data));
     	        AuthApiConfig = data;
     	        $("#scriptcontainer").html(data.html);	        
-    	    });	        
+    	    });
     	</script>
         <div id="scriptcontainer"></div>
 		
