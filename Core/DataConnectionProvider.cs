@@ -45,7 +45,7 @@ namespace Core
             using (var dbConn = _dbFactory.OpenDbConnection())
             using (var dbCmd = dbConn.CreateCommand())
             {
-                commandAction(dbCmd);
+				commandAction(dbCmd);
             }
         }
 

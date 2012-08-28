@@ -21,10 +21,9 @@ namespace Data
             var allIDataItems = GetAllIDataItems();
 
             using (var dbConn = dbFactory.OpenDbConnection())
-            using (var dbCmd = dbConn.CreateCommand())
-            {
+			{
                 const bool overwrite = false;
-                dbCmd.CreateTables(overwrite, allIDataItems);
+				dbConn.CreateTables(overwrite, allIDataItems);
             }
         }
 
@@ -33,9 +32,8 @@ namespace Data
         {
             var dbFactory = OrmLiteConnectionFactory();
             using (var dbConn = dbFactory.OpenDbConnection())
-            using (var dbCmd = dbConn.CreateCommand())
             {
-                dbCmd.DropTable<AuthenticationProvider>();
+				dbConn.DropTable<AuthenticationProvider>();
             }
         }
 

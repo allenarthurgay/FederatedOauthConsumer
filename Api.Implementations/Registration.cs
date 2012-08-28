@@ -10,7 +10,7 @@ namespace Api.Implementations
 {
 	public class Registration : IFunqRegistrationModule
 	{
-		public void RegisterDependencies(Funq.Container container)
+		public void RegisterDependencies(Container container)
 		{
 			container.Register<IAuthConsumerService>(c => new AuthConsumerService(c.Resolve<IUserTokenRepository>(),
 				c.Resolve<IServiceProviderRepository>(),
