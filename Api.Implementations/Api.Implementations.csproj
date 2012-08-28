@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiRegistration.cs" />
     <Compile Include="Handlers\EmptyExampleHandler.cs" />
     <Compile Include="Handlers\GetRegistrationHtmlHandler.cs" />
     <Compile Include="Handlers\GetServiceTokenForPrincipalIdHandler.cs" />
@@ -60,11 +61,19 @@
     <Compile Include="Handlers\IsRegisteredForServiceHandler.cs" />
     <Compile Include="Handlers\RegisterServiceProviderRequestHandler.cs" />
     <Compile Include="Handlers\RegisterServiceTokenHandler.cs" />
+    <Compile Include="Handlers\RequiresAppRegistrationAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.cs" />
+    <Compile Include="Repositories\AccountApplicationRepository.cs" />
+    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\AccountUserRepository.cs" />
+    <Compile Include="Repositories\ApplicationRepository.cs" />
+    <Compile Include="Repositories\ApplicationServiceRepository.cs" />
     <Compile Include="Repositories\BaseDataItemRepository.cs" />
     <Compile Include="Repositories\ServiceProviderRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserTokenRecordRepository.cs" />
+    <Compile Include="Services\ApplicationAuthenticationService.cs" />
     <Compile Include="Services\AuthConsumerService.cs" />
     <Compile Include="Services\AuthProviderFactory.cs" />
     <Compile Include="Services\FacebookAuthProviderInstance.cs" />

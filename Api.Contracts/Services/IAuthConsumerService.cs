@@ -1,4 +1,4 @@
-﻿using Api.Contracts.dto;
+﻿using Api.Contracts.Dto;
 
 namespace Api.Contracts.Services
 {

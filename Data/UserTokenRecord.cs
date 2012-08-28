@@ -2,7 +2,7 @@
 
 namespace Data
 {
-	public class UserTokenRecord : DataItemBase
+	public class UserTokenRecord : DataItem
 	{
 		public Guid UserId { get; set; }
 		

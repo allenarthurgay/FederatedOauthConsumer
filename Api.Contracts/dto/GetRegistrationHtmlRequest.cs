@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Api.Contracts.dto
+namespace Api.Contracts.Dto
 {
-	public class GetRegistrationHtmlRequest
+	public class GetRegistrationHtmlRequest : ApplicationRequest
 	{
 		public Guid PrincipalId { get; set; }
 

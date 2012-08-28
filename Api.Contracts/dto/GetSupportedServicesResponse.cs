@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Api.Contracts.dto
+namespace Api.Contracts.Dto
 {
 	public class GetSupportedServicesResponse
 	{

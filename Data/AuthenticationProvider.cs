@@ -2,7 +2,7 @@
 
 namespace Data
 {
-    public class AuthenticationProvider: DataItemBase
+    public class AuthenticationProvider: DataItem
     {
         [StringLength(500)]
         public string Name { get; set; }

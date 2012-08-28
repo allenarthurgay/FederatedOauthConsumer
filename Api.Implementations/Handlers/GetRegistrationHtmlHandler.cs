@@ -1,10 +1,11 @@
 ﻿using Api.Contracts.Services;
-using Api.Contracts.dto;
+using Api.Contracts.Dto;
 using ServiceStack.ServiceInterface;
 
 namespace Api.Implementations.Handlers
 {
-	class GetRegistrationHtmlHandler : RestServiceBase<GetRegistrationHtmlRequest>
+	[RequiresAppRegistration(Priority = -1, ApplyTo = ApplyTo.All)]
+	public class GetRegistrationHtmlHandler : RestServiceBase<GetRegistrationHtmlRequest>
 	{
 		private readonly IAuthConsumerService _service;
 

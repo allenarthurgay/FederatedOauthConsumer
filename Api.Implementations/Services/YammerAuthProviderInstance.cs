@@ -1,5 +1,5 @@
 ﻿using Api.Contracts.Services;
-using Api.Contracts.dto;
+using Api.Contracts.Dto;
 using Data;
 
 namespace Api.Implementations.Services

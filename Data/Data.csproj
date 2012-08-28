@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="AuthenticationProvider.cs" />
-    <Compile Include="DataItemBase.cs" />
+    <Compile Include="DataItem.cs" />
     <Compile Include="DataItemRepository.cs" />
     <Compile Include="IDataItem.cs" />
     <Compile Include="IDataItemRepository.cs" />

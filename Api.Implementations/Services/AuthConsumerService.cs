@@ -1,7 +1,7 @@
 ﻿using System;
 using Api.Contracts.Repositories;
 using Api.Contracts.Services;
-using Api.Contracts.dto;
+using Api.Contracts.Dto;
 using Data;
 
 

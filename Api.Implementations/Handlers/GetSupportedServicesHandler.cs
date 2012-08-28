@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Api.Contracts.Services;
-using Api.Contracts.dto;
+﻿using Api.Contracts.Services;
+using Api.Contracts.Dto;
 using ServiceStack.ServiceInterface;
 
 namespace Api.Implementations.Handlers
 {
+	[RequiresAppRegistration(Priority = -1, ApplyTo = ApplyTo.All)]
 	public class GetSupportedServicesHandler : RestServiceBase<GetSupportedServicesRequest>
 	{
 		private readonly IAuthConsumerService _service;

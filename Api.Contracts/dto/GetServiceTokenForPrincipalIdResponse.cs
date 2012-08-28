@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Api.Contracts.dto
+namespace Api.Contracts.Dto
 {
 	public class GetServiceTokenForPrincipalIdResponse
 	{

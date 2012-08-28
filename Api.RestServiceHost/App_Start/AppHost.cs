@@ -1,5 +1,4 @@
-using Api.Contracts;
-using Api.Contracts.dto;
+using Api.Implementations;
 using Api.Implementations.Handlers;
 using Core;
 using ServiceStack.CacheAccess;
@@ -21,13 +20,7 @@ namespace Api.RestServiceHost.App_Start
 			//Set JSON web services to return idiomatic JSON camelCase properties
 			ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
 
-			Routes.Add<EmptyDto>("/empty")
-				.Add<GetSupportedServicesRequest>("/supportedservices")
-                .Add<GetRegistrationHtmlRequest>("/{PrincipalId}/{Service}/registrationhtml")
-				.Add<IsRegisteredForServiceRequest>("/{PrincipalId}/{Service}/isregistered")
-				.Add<GetServiceTokenForPrincipalIdRequest>("/{PrincipalId}/{Service}/gettoken")
-				.Add<RegisterServiceTokenRequest>("/register/token")
-                .Add<RegisterServiceProviderRequest>("/register/serviceprovider");
+			ApiRegistration.Register(Routes);
 
 			//Change the default ServiceStack configuration
 			SetConfig(new EndpointHostConfig

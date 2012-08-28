@@ -7,7 +7,4 @@ namespace Api.Contracts.Repositories
     {
         UserTokenRecord GetUserTokenRecord(Guid userId, int serviceId);
     }
-
-
-
 }

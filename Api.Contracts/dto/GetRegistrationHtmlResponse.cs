@@ -1,4 +1,4 @@
-﻿namespace Api.Contracts.dto
+﻿namespace Api.Contracts.Dto
 {
 	public class GetRegistrationHtmlResponse
     {
