@@ -1,8 +1,8 @@
-﻿using Api.Contracts.DTO;
+using Api.Contracts.DTO;
 using Api.Contracts.Dto;
 using ServiceStack.ServiceHost;
 
-namespace Api.Implementations
+namespace Api.RestHandlers
 {
 	public static class RestPaths
 	{

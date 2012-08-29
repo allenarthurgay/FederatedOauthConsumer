@@ -134,6 +134,10 @@
       <Project>{6B511690-28B0-400D-97EA-8EE7B3046F91}</Project>
       <Name>Api.Implementations</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Api.RestHandlers\Api.RestHandlers.csproj">
+      <Project>{3FCFB5FC-6C1B-4F21-9862-CFA2583C5020}</Project>
+      <Name>Api.RestHandlers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{1F902AAD-9A34-4530-A3E3-62B0F31A38A5}</Project>
       <Name>Core</Name>

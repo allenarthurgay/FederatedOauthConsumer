@@ -1,8 +1,8 @@
-﻿using Api.Contracts.Services;
 using Api.Contracts.Dto;
+using Api.Contracts.Services;
 using ServiceStack.ServiceInterface;
 
-namespace Api.Implementations.Handlers
+namespace Api.RestHandlers
 {
 	[RequiresAppRegistration(Priority = -1, ApplyTo = ApplyTo.All)]
 	public class GetServiceTokenForPrincipalIdHandler : RestServiceBase<GetServiceTokenForPrincipalIdRequest>

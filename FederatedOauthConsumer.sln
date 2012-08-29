@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yammerservice", "YammerService\yammerservice.csproj", "{DB45A4A0-3102-4AEC-B4DA-E564976A8D94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.RestHandlers", "Api.RestHandlers\Api.RestHandlers.csproj", "{3FCFB5FC-6C1B-4F21-9862-CFA2583C5020}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = FederatedOauthConsumer.vsmdi
@@ -61,15 +63,14 @@ Global
 		{B966A7EC-C51E-434F-814E-BD78FFCF6B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B966A7EC-C51E-434F-814E-BD78FFCF6B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B966A7EC-C51E-434F-814E-BD78FFCF6B62}.Release|Any CPU.Build.0 = Release|Any CPU
-
-		{4442CB01-6FEF-4DF0-83FF-60E9514FB557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4442CB01-6FEF-4DF0-83FF-60E9514FB557}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4442CB01-6FEF-4DF0-83FF-60E9514FB557}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4442CB01-6FEF-4DF0-83FF-60E9514FB557}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DB45A4A0-3102-4AEC-B4DA-E564976A8D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB45A4A0-3102-4AEC-B4DA-E564976A8D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB45A4A0-3102-4AEC-B4DA-E564976A8D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB45A4A0-3102-4AEC-B4DA-E564976A8D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FCFB5FC-6C1B-4F21-9862-CFA2583C5020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCFB5FC-6C1B-4F21-9862-CFA2583C5020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCFB5FC-6C1B-4F21-9862-CFA2583C5020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCFB5FC-6C1B-4F21-9862-CFA2583C5020}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

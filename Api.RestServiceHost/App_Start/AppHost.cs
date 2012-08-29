@@ -1,5 +1,5 @@
 using Api.Implementations;
-using Api.Implementations.Handlers;
+using Api.RestHandlers;
 using Core;
 using ServiceStack.CacheAccess;
 using ServiceStack.CacheAccess.Providers;

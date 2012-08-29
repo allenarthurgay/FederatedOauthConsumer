@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Net;
-using Api.Contracts.Services;
 using Api.Contracts.Dto;
+using Api.Contracts.Services;
 using ServiceStack.Logging;
 using ServiceStack.ServiceHost;
 using ServiceStack.ServiceInterface;
 
-namespace Api.Implementations.Handlers
+namespace Api.RestHandlers
 {
 	[AttributeUsage(AttributeTargets.Class)]
 	public class RequiresAppRegistrationAttribute: RequestFilterAttribute
