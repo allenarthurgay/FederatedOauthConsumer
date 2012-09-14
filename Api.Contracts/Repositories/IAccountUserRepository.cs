@@ -5,6 +5,6 @@ namespace Api.Contracts.Repositories
 {
 	public interface IAccountUserRepository : ISimpleDataItemRepository<AccountUser>
 	{
-		IEnumerable<AccountUser> GetForAccount(int accountId);
+		IEnumerable<User> GetForAccount(int accountId);
 	}
 }

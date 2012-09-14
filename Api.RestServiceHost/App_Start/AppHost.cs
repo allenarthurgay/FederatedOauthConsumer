@@ -1,5 +1,6 @@
-using Api.Implementations;
 using Api.RestHandlers;
+using Api.RestHandlers.Handlers;
+using Api.RestHandlers.Validators;
 using Core;
 using ServiceStack.CacheAccess;
 using ServiceStack.CacheAccess.Providers;
@@ -36,6 +37,8 @@ namespace Api.RestServiceHost.App_Start
 			});
 
 			Plugins.Add(new ValidationFeature());
+
+			container.RegisterValidators(typeof(ApplicationRequestValidator).Assembly);
 
 			Plugins.Add(new RequestLogsFeature());
 

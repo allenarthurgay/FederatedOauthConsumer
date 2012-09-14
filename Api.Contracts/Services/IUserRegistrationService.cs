@@ -1,15 +1,13 @@
-﻿using Data;
+﻿using Api.Contracts.DTO;
+using Data;
 
 namespace Api.Contracts.Services
 {
 	public interface IAccountRegistrationService
 	{
-		void RegisterUser(RegisterUser request);
+		void RegisterAccountForUser(RegisterAccountRequest request);
 
-		void RegisterAccountForUser(RegisterAccount request);
-
-		void RegisterAuthServiceForAccount(RegisterAuthServiceProvider request);
-		
+		void RegisterAuthServiceForAccount(RegisterAuthServiceProvider request);		
 	}
 
 	public class RegisterAuthServiceProvider
@@ -20,7 +18,7 @@ namespace Api.Contracts.Services
 	{
 	}
 
-	public class RegisterUser
+	public class RegisterUserRequest
 	{
 		
 	}

@@ -75,9 +75,11 @@
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\IUserTokenRepository.cs" />
     <Compile Include="Services\IApplicationAuthenticationService.cs" />
+    <Compile Include="Services\IApplicationBreadService.cs" />
     <Compile Include="Services\IAuthConsumerService.cs" />
     <Compile Include="Services\IAuthProviderInstance.cs" />
     <Compile Include="Services\IAuthProviderFactory.cs" />
+    <Compile Include="Services\IUserBreadService.cs" />
     <Compile Include="Services\IUserRegistrationService.cs" />
   </ItemGroup>
   <ItemGroup>

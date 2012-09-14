@@ -68,15 +68,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiRegistration.cs" />
-    <Compile Include="EmptyExampleHandler.cs" />
-    <Compile Include="GetRegistrationHtmlHandler.cs" />
-    <Compile Include="GetServiceTokenForPrincipalIdHandler.cs" />
-    <Compile Include="GetSupportedServicesHandler.cs" />
-    <Compile Include="IsRegisteredForServiceHandler.cs" />
+    <Compile Include="Handlers\AddApplicationRequestHandler.cs" />
+    <Compile Include="Handlers\AddApplicationServiceRequestHandler.cs" />
+    <Compile Include="Handlers\BrowseAccountUsersRequestHandler.cs" />
+    <Compile Include="Handlers\BrowseApplicationServicesRequestHandler.cs" />
+    <Compile Include="Handlers\BrowseApplicationsRequestHandler.cs" />
+    <Compile Include="Handlers\DeleteApplicationRequestHandler.cs" />
+    <Compile Include="Handlers\DeleteApplicationServiceRequestHandler.cs" />
+    <Compile Include="Handlers\EmptyExampleHandler.cs" />
+    <Compile Include="Handlers\GetApplicationRequestHandler.cs" />
+    <Compile Include="Handlers\GetRegistrationHtmlHandler.cs" />
+    <Compile Include="Handlers\GetServiceTokenForPrincipalIdHandler.cs" />
+    <Compile Include="Handlers\GetSupportedServicesHandler.cs" />
+    <Compile Include="Handlers\GetUserRequestHandler.cs" />
+    <Compile Include="Handlers\IsRegisteredForServiceHandler.cs" />
+    <Compile Include="Handlers\RegisterAccountRequestHandler.cs" />
+    <Compile Include="Handlers\RegisterAccountUserRequestHandler.cs" />
+    <Compile Include="Handlers\RegisterServiceProviderRequestHandler.cs" />
+    <Compile Include="Handlers\RegisterServiceTokenHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterServiceProviderRequestHandler.cs" />
-    <Compile Include="RegisterServiceTokenHandler.cs" />
     <Compile Include="RequiresAppRegistrationAttribute.cs" />
+    <Compile Include="Validators\ApplicationRequestValidator.cs" />
+    <Compile Include="Validators\GetSupportedServicesRequestValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -85,6 +98,10 @@
     <ProjectReference Include="..\Api.Contracts\Api.Contracts.csproj">
       <Project>{465D9510-43D7-4C51-8B11-1FB57D6A7C9D}</Project>
       <Name>Api.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api.Implementations\Api.Implementations.csproj">
+      <Project>{6B511690-28B0-400D-97EA-8EE7B3046F91}</Project>
+      <Name>Api.Implementations</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{B40B33E8-B802-4384-8F22-F7670B060566}</Project>

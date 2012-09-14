@@ -84,30 +84,28 @@ namespace Api.Implementations.Repositories
 
         public T GetById(int id)
         {
-            using (var dbConn = ConnectionProvider.OpenConnection())
-            using (var dbCmd = dbConn.CreateCommand())
+            using (var dbConn = ConnectionProvider.OpenConnection())            
             {
-                var items = dbCmd.Where<T>(new { Id = id });
+                var items = dbConn.Where<T>(new { Id = id });
                 return items.FirstOrDefault();
             }
         }
 
         public IEnumerable<T> GetValues(Status status, int page, int pagesize)
         {
-            using (var dbConn = ConnectionProvider.OpenConnection())
-            using (var dbCmd = dbConn.CreateCommand())
-            {
-                var items = dbCmd.Where<T>(new { Status = (int)status });
-                return items.Select(i => i).OrderBy(c => c.Created).Skip((page - 1) * pagesize).Take(pagesize);
-            }
+	        return ConnectionProvider.ExecuteQuery(conn =>
+		        {
+					var items = conn.Where<T>(new { Status = (int)status });
+			        return items.Select(i => i).OrderBy(c => c.Created).Skip((page - 1)*pagesize).Take(pagesize);
+		        });
         }
 
-        public static T GetById(int id, IDbCommand cmd = null)
+		public static T GetById(int id, IDbConnection cmd = null)
         {
             return cmd.SingleWhere<T>("Id", id);
         }
 
-        protected long AddGlobal(IDbCommand cmd, T dataitem)
+		protected long AddGlobal(IDbConnection cmd, T dataitem)
         {
             var item = GetById(dataitem.Id, cmd);
             if (item != null)

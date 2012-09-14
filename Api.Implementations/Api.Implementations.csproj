@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HandlerMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="Repositories\AccountApplicationRepository.cs" />
@@ -86,9 +87,11 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserTokenRecordRepository.cs" />
     <Compile Include="Services\ApplicationAuthenticationService.cs" />
+    <Compile Include="Services\ApplicationBreadService.cs" />
     <Compile Include="Services\AuthConsumerService.cs" />
     <Compile Include="Services\AuthProviderFactory.cs" />
     <Compile Include="Services\FacebookAuthProviderInstance.cs" />
+    <Compile Include="Services\UserBreadService.cs" />
     <Compile Include="Services\YammerAuthProviderInstance.cs" />
   </ItemGroup>
   <ItemGroup>

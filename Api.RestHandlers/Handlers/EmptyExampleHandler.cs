@@ -1,7 +1,7 @@
 using Api.Contracts;
 using ServiceStack.ServiceInterface;
 
-namespace Api.RestHandlers
+namespace Api.RestHandlers.Handlers
 {
     public class EmptyExampleHandler: RestServiceBase<EmptyDto>
     {

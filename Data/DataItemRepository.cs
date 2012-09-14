@@ -11,18 +11,16 @@ namespace Data
 		public IEnumerable<T> GetAll()
 		{
 			using (var dbConn = DbFactory.OpenDbConnection())
-			using (var dbCmd = dbConn.CreateCommand())
 			{
-				return dbCmd.Select<T>();
+				return dbConn.Select<T>();
 			}
 		}
 
 		public IDataItem GetById(int id)
 		{
 			using (var dbConn = DbFactory.OpenDbConnection())
-			using (var dbCmd = dbConn.CreateCommand())
 			{
-				return dbCmd.GetById<T>(id);
+				return dbConn.GetById<T>(id);
 			}
 		}
 
@@ -30,10 +28,9 @@ namespace Data
 		public void Add(T itemToAdd)
 		{
 			using (var dbConn = DbFactory.OpenDbConnection())
-			using (var dbCmd = dbConn.CreateCommand())
 			{
 				itemToAdd.Created = itemToAdd.Updated = DateTime.Now;
-				dbCmd.Insert(itemToAdd);
+				dbConn.Insert(itemToAdd);
 			}
 		}
 	}

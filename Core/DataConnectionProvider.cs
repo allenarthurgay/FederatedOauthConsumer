@@ -28,35 +28,32 @@ namespace Core
             return _dbFactory.OpenDbConnection();
         }
 
-        public void TransactionWithCommand(Action<IDbCommand> commandAction)
+		public void TransactionWithCommand(Action<IDbConnection> commandAction)
         {
-            using (var dbConn = _dbFactory.OpenDbConnection())
-            using (var dbCmd = dbConn.CreateCommand())
-            using (var trans = dbCmd.BeginTransaction())
+            using (var dbConn = _dbFactory.OpenDbConnection())            
+			using (var trans = dbConn.BeginTransaction())
             {
-                commandAction(dbCmd);
+				commandAction(dbConn);
 
                 trans.Commit();
             }
         }
 
-        public void WithCommand(Action<IDbCommand> commandAction)
+		public void WithCommand(Action<IDbConnection> commandAction)
         {
             using (var dbConn = _dbFactory.OpenDbConnection())
-            using (var dbCmd = dbConn.CreateCommand())
             {
-				commandAction(dbCmd);
+				commandAction(dbConn);
             }
         }
 
-        public T ExecuteQuery<T>(Func<IDbCommand, T> commandAction)
+        public T ExecuteQuery<T>(Func<IDbConnection, T> commandAction)
         {
             T retVal;
 
-            using (var dbConn = _dbFactory.OpenDbConnection())
-            using (var dbCmd = dbConn.CreateCommand())
+            using (var dbConn = _dbFactory.OpenDbConnection())            
             {
-                retVal = commandAction(dbCmd);
+				retVal = commandAction(dbConn);
             }
             return retVal;
         }
@@ -66,9 +63,9 @@ namespace Core
             T retVal;
 
             using (var dbConn = _dbFactory.OpenDbConnection())
-            using (var dbCmd = dbConn.CreateCommand())
+			using (var dbCmd = dbConn.CreateCommand())
             {
-                retVal = dbCmd.SingleWhere<T>(name, value);
+				retVal = dbCmd.SingleWhere<T>(name, value);
             }
             return retVal;
         }

@@ -22,5 +22,19 @@ namespace Api.Implementations.Repositories
 																							AccountId = accountId
 																						}));
 		}
+
+		public Account GetForApplication(int applicationId)
+		{
+			return ConnectionProvider.ExecuteQuery(c =>
+				{
+					var accountApplication = c.Where<AccountApplication>(new
+						{
+							ApplicationId = applicationId
+						}).FirstOrDefault();
+
+					return c.Where<Account>(new {Id = accountApplication.AccountId}).FirstOrDefault();
+				});
+
+		}
 	}
 }

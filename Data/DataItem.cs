@@ -10,6 +10,7 @@ namespace Data
             UniqueId = Guid.NewGuid();
             Created = DateTime.UtcNow;
             Updated = DateTime.UtcNow;
+	        Status = 1;
         }
 		[AutoIncrement]
 		[PrimaryKey]

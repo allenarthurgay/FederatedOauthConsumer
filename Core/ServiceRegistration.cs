@@ -30,7 +30,7 @@ namespace Core
                 var t = assembly.GetTypes();
                 return t;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return Enumerable.Empty<Type>();
             }

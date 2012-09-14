@@ -12,13 +12,13 @@ namespace Api.Implementations.Repositories
 		{
 		}
 
-		public IEnumerable<AccountUser> GetForAccount(int accountId)
+		public IEnumerable<User> GetForAccount(int accountId)
 		{
-			return ConnectionProvider.ExecuteQuery(c =>
-														c.Where<AccountUser>(new
-														{
-															AccountId = accountId
-														}));
+			return ConnectionProvider.ExecuteQuery(c => c.Select<User>(
+				string.Format(
+					"Select * from User u INNER JOIN AccountUser au ON u.Id=au.UserId where " +
+					" au.AccountId={0}",
+					accountId)));
 		}
 	}
 }

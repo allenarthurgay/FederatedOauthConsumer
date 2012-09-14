@@ -7,11 +7,11 @@ namespace Core
     {
         IDbConnection OpenConnection();
 
-        void TransactionWithCommand(Action<IDbCommand> commandAction);
+		void TransactionWithCommand(Action<IDbConnection> commandAction);
 
-        void WithCommand(Action<IDbCommand> commandAction);
+		void WithCommand(Action<IDbConnection> commandAction);
 
-        T ExecuteQuery<T>(Func<IDbCommand, T> commandAction);
+		T ExecuteQuery<T>(Func<IDbConnection, T> commandAction);
 
         T Single<T>(string name, string value) where T : new();
 
